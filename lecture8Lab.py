@@ -12,7 +12,7 @@ import pandas as pd
 
 df = pd.read_csv('/Users/feitianyang/Documents/GitHub/datasci-harris-tfeiaaa/L08 LabData.csv')
 
-# Display the first few rows of the DataFrame to explore its content
+
 df.head()
   DATEOFRECORDING  GDPRAWEST  POPULATIONINMILLION  UNEMPLOYMENTRATE
 0     31DCMBR1947     2490.0                144.0               4.9
@@ -73,7 +73,7 @@ Hint: the GDP per capita in 1947 should be around 17,000 dollars
 
 df['gdp_per_capita'] = (df['gdp'] * 1e9) / (df['population'] * 1e6)
 
-# Display the first few rows to verify the new column
+
 df.head()
           date     gdp  population  unemployment  gdp_per_capita
 0  31DCMBR1947  2490.0       144.0           4.9    17291.666667
@@ -103,13 +103,13 @@ def fix_date(date_str):
     """
     return date_str.replace('31DCMBR', '12-31-')
 
-# Apply the function to the date column to fix the dates
+
 df['date'] = df['date'].map(fix_date)
 
-# Convert the fixed date column into a datetime object
+
 df['date'] = pd.to_datetime(df['date'], format='%m-%d-%Y')
 
-# Display the first few rows to verify the changes
+
 df.head()
         date     gdp  population  unemployment  gdp_per_capita
 0 1947-12-31  2490.0       144.0           4.9    17291.666667
